@@ -126,7 +126,7 @@ module EventMachine
     end
 
     def encode_headers(head)
-      head.inject('') do |result, (key, value)|
+      head.inject(+'') do |result, (key, value)|
         # Munge keys from foo-bar-baz to Foo-Bar-Baz
         key = key.split('-').map { |k| k.to_s.capitalize }.join('-')
         result << case key
